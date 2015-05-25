@@ -6,8 +6,9 @@
 
 ## 4.1 潜在的ディリクレ配分法 (LDA)
 
-*LDA* --- 1. Latent Dirichlet Allocatioin 潜在的ディリクレ配分法 (以下*LDA*をこちらの意味で用いる)
-          2. Linear Discriminant Analysis 線形判別分析 (scikit-learn にある sklearn.lda はこっち)
+**LDA**
+1. Latent Dirichlet Allocatioin 潜在的ディリクレ配分法 (以下*LDA*をこちらの意味で用いる)
+2. Linear Discriminant Analysis 線形判別分析 (scikit-learn にある sklearn.lda はこっち)
 
 - LDA は最も単純なトピックモデルであり、多くのトピックモデル手法の基礎
 - LDA の背景にある数式については [Wikipedia のページ](http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) を参照
@@ -61,7 +62,7 @@
 - ある文書について返されるトピックの数は 100 個中数個
 - つまり、各文書は一部のトピックだけから構成されている -> トピックモデルは疎なモデル
 
-![トピック数](https://github.com/poiuiop/machine_learning_python/tree/master/img/01.png"各文書に割り当てられるトピックの数")
+![トピック数](https://github.com/poiuiop/machine_learning_python/blob/master/img/01.png"各文書に割り当てられるトピックの数")
 
 - 約150個の文書が 5つのトピックを持っている
 - 10 ~ 12個のトピックを持っている文書も多くある
@@ -77,7 +78,7 @@
     id2word=corpus.id2word,
     alpha=1)
 
-![alpha別](https://github.com/poiuiop/machine_learning_python/tree/master/img/02.png"alpha の値が異なる場合のトピック数")
+![alpha別](https://github.com/poiuiop/machine_learning_python/blob/master/img/02.png"alpha の値が異なる場合のトピック数")
 
 - alpha = 1.0 にすると、多くの文書が 20 ~ 25個のトピックを持つようになる
 
@@ -86,13 +87,13 @@
 - 単語についての多項分布 -> 各単語に確率を与える。確率の高い単語はそのトピックと関連性が高い
 - トピックを要約するためには、高い確率を持つ単語のリストを提示するのが一般的
 
-![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/tree/master/img/03.png"初めの10個のトピック")
-![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/tree/master/img/04.png"初めの10個のトピック")
+![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/blob/master/img/03.png"初めの10個のトピック")
+![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/blob/master/img/04.png"初めの10個のトピック")
 
 - 当然ながら、トピックが持つ単語同士には関連性がある
 - 単語には重要度が与えられているので、ワードクラウドによっていい感じに表示できる
 
-![ワードクラウド](https://github.com/poiuiop/machine_learning_python/tree/master/img/05.png"ワードクラウド")
+![ワードクラウド](https://github.com/poiuiop/machine_learning_python/blob/master/img/05.png"ワードクラウド")
 
 - ストップワードの除去やステミングも重要
 
@@ -142,8 +143,8 @@ pdist 関数を用いると、文書の全ての組み合わせでこの計算�
 
 この関数を用いると、例えばデータセットの二つ目の文書に最も類似する文書は`closest_to(1)`で取れる
 
-![二つ目の文書](https://github.com/poiuiop/machine_learning_python/tree/master/img/06.png"二つ目の文書")
-![最も類似する文書](https://github.com/poiuiop/machine_learning_python/tree/master/img/07.png"最も類似する文書")
+![二つ目の文書](https://github.com/poiuiop/machine_learning_python/blob/master/img/06.png"二つ目の文書")
+![最も類似する文書](https://github.com/poiuiop/machine_learning_python/blob/master/img/07.png"最も類似する文書")
 
 - 両方とも同じ人が書いた文書で薬について書かれている
 
