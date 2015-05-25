@@ -56,13 +56,20 @@
     topics = [model[c] for c in corpus]
     print topics[0]
 
+
+    [(3, 0.023607255776894751),
+      (13, 0.11679936618551275),
+      (19, 0.075935855202707139),
+      (92, 0.10781541687001292)]
+
+
 - `model[doc]` は doc が持つトピックを (topic_index, topic_weight) のリストの形で返す
 - 上ではコーパス中の最初の文書が持つトピックのリストを出力させている
 
 - ある文書について返されるトピックの数は 100 個中数個
 - つまり、各文書は一部のトピックだけから構成されている -> トピックモデルは疎なモデル
 
-![トピック数](https://github.com/poiuiop/machine_learning_python/blob/master/img/01.png"各文書に割り当てられるトピックの数")
+![トピック数](https://github.com/poiuiop/machine_learning_python/blob/master/img/01.png)
 
 - 約150個の文書が 5つのトピックを持っている
 - 10 ~ 12個のトピックを持っている文書も多くある
@@ -78,7 +85,8 @@
     id2word=corpus.id2word,
     alpha=1)
 
-![alpha別](https://github.com/poiuiop/machine_learning_python/blob/master/img/02.png"alpha の値が異なる場合のトピック数")
+
+![alpha別](https://github.com/poiuiop/machine_learning_python/blob/master/img/02.png)
 
 - alpha = 1.0 にすると、多くの文書が 20 ~ 25個のトピックを持つようになる
 
@@ -87,13 +95,13 @@
 - 単語についての多項分布 -> 各単語に確率を与える。確率の高い単語はそのトピックと関連性が高い
 - トピックを要約するためには、高い確率を持つ単語のリストを提示するのが一般的
 
-![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/blob/master/img/03.png"初めの10個のトピック")
-![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/blob/master/img/04.png"初めの10個のトピック")
+![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/blob/master/img/03.png)
+![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/blob/master/img/04.png)
 
 - 当然ながら、トピックが持つ単語同士には関連性がある
 - 単語には重要度が与えられているので、ワードクラウドによっていい感じに表示できる
 
-![ワードクラウド](https://github.com/poiuiop/machine_learning_python/blob/master/img/05.png"ワードクラウド")
+![ワードクラウド](https://github.com/poiuiop/machine_learning_python/blob/master/img/05.png)
 
 - ストップワードの除去やステミングも重要
 
@@ -143,8 +151,8 @@ pdist 関数を用いると、文書の全ての組み合わせでこの計算�
 
 この関数を用いると、例えばデータセットの二つ目の文書に最も類似する文書は`closest_to(1)`で取れる
 
-![二つ目の文書](https://github.com/poiuiop/machine_learning_python/blob/master/img/06.png"二つ目の文書")
-![最も類似する文書](https://github.com/poiuiop/machine_learning_python/blob/master/img/07.png"最も類似する文書")
+![二つ目の文書](https://github.com/poiuiop/machine_learning_python/blob/master/img/06.png)
+![最も類似する文書](https://github.com/poiuiop/machine_learning_python/blob/master/img/07.png)
 
 - 両方とも同じ人が書いた文書で薬について書かれている
 
@@ -188,10 +196,12 @@ gensim を用いてインデックス化
 
     model = gensim.models.ldamodel.LdaModel.load('wiki_lda.pkl')
 
+    
     topics = []
     for doc in mm:
         topics.append(model[doc])
 
+    
     import numpy as np
     lens = np.array([len(t) for t in topics])
 
