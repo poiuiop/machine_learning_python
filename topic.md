@@ -56,7 +56,6 @@
     topics = [model[c] for c in corpus]
     print topics[0]
 
-
     [(3, 0.023607255776894751),
       (13, 0.11679936618551275),
       (19, 0.075935855202707139),
@@ -65,7 +64,6 @@
 
 - `model[doc]` は doc が持つトピックを (topic_index, topic_weight) のリストの形で返す
 - 上ではコーパス中の最初の文書が持つトピックのリストを出力させている
-
 - ある文書について返されるトピックの数は 100 個中数個
 - つまり、各文書は一部のトピックだけから構成されている -> トピックモデルは疎なモデル
 
@@ -92,8 +90,8 @@
 
 #### トピックの持つ意味
 
-- 単語についての多項分布 -> 各単語に確率を与える。確率の高い単語はそのトピックと関連性が高い
-- トピックを要約するためには、高い確率を持つ単語のリストを提示するのが一般的
+単語についての多項分布 -> 各単語に確率を与える。確率の高い単語はそのトピックと関連性が高い
+トピックを要約するためには、高い確率を持つ単語のリストを提示するのが一般的
 
 ![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/blob/master/img/03.png)
 ![初めの10個のトピック](https://github.com/poiuiop/machine_learning_python/blob/master/img/04.png)
@@ -107,9 +105,9 @@
 
 ## 4.2 トピック空間で類似度の比較を行う
 
-- トピックはそれだけでも実用的
-    - ワードクラウドのような形で文書の要約が作成できる
-    - 大量に文書がある場合のナビゲーションになる
+トピックはそれだけでも実用的
+- ワードクラウドのような形で文書の要約が作成できる
+- 大量に文書がある場合のナビゲーションになる
 
 ここまでやってきたこと
 -> 各文書が各トピックからどれくらいの割合で生成されているかということの予測
@@ -196,23 +194,24 @@ gensim を用いてインデックス化
 
     `model = gensim.models.ldamodel.LdaModel.load('wiki_lda.pkl')`
 
-    
-    topics = []
+    ```topics = []
     for doc in mm:
-        topics.append(model[doc])
-
+        topics.append(model[doc])```
     
-    import numpy as np
-    lens = np.array([len(t) for t in topics])
-
+    ```import numpy as np
+    lens = np.array([len(t) for t in topics])```
 
 - lens -> 各文書のトピック数のリスト
 
-    `print np.mean(lens)`
+    print np.mean(lens)
+
+    6.55842326445
 
 - トピック数の平均値 -> およそ 6.5 （疎なモデル）
 
-    `print np.mean(lens <= 10)`
+    print np.mean(lens <= 10)
+
+    0.932382190219
 
 - トピック数 10個以下の割合 -> およそ 93%
 
