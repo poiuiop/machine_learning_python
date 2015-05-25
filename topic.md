@@ -205,6 +205,7 @@ gensim を用いてインデックス化
     import numpy as np
     lens = np.array([len(t) for t in topics])
 
+
 - lens -> 各文書のトピック数のリスト
 
     `print np.mean(lens)`
