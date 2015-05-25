@@ -194,7 +194,7 @@ gensim を用いてインデックス化
 - ダウンロード、インデックス化、モデル作成には非常に時間がかかる（それぞれ数時間）
 - 保存しておけばここから続きができる
 
-    model = gensim.models.ldamodel.LdaModel.load('wiki_lda.pkl')
+    `model = gensim.models.ldamodel.LdaModel.load('wiki_lda.pkl')`
 
     
     topics = []
@@ -207,11 +207,11 @@ gensim を用いてインデックス化
 
 - lens -> 各文書のトピック数のリスト
 
-    print np.mean(lens)
+    `print np.mean(lens)`
 
 - トピック数の平均値 -> およそ 6.5 （疎なモデル）
 
-    print np.mean(lens <= 10)
+    `print np.mean(lens <= 10)`
 
 - トピック数 10個以下の割合 -> およそ 93%
 
