@@ -77,6 +77,7 @@
 - alpha が大きくなると各文書が持つトピック数が増える
 - alpha > 0, 通常は小さな値(< 1), gensim のデフォルトは 1.0 / len(corpus)
 
+
     model = models.ldamodel.LdaModel(
     corpus,
     num_topics=100,
@@ -203,15 +204,19 @@ gensim を用いてインデックス化
 
 - lens -> 各文書のトピック数のリスト
 
+
     print np.mean(lens)
 
     6.55842326445
 
+
 - トピック数の平均値 -> およそ 6.5 （疎なモデル）
+
 
     print np.mean(lens <= 10)
 
     0.932382190219
+
 
 - トピック数 10個以下の割合 -> およそ 93%
 
