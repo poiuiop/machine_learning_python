@@ -197,18 +197,27 @@ gensim を用いてインデックス化
     for doc in mm:
         topics.append(model[doc])```
     
+
     ```import numpy as np
+
     lens = np.array([len(t) for t in topics])```
+
 
 - lens -> 各文書のトピック数のリスト
 
+
     ```print np.mean(lens)
+
     6.55842326445```
+
 
 - トピック数の平均値 -> およそ 6.5 （疎なモデル）
 
+
     ```print np.mean(lens <= 10)
+
     0.932382190219```
+
 
 - トピック数 10個以下の割合 -> およそ 93%
 
