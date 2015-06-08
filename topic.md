@@ -7,6 +7,7 @@
 ## 4.1 潜在的ディリクレ配分法 (LDA)
 
 **LDA**
+
 1. Latent Dirichlet Allocatioin 潜在的ディリクレ配分法 (以下*LDA*をこちらの意味で用いる)
 2. Linear Discriminant Analysis 線形判別分析 (scikit-learn にある sklearn.lda はこっち)
 
@@ -76,6 +77,7 @@
 - alpha が大きくなると各文書が持つトピック数が増える
 - alpha > 0, 通常は小さな値(< 1), gensim のデフォルトは 1.0 / len(corpus)
 
+
     model = models.ldamodel.LdaModel(
     corpus,
     num_topics=100,
@@ -143,6 +145,7 @@ pdist 関数を用いると、文書の全ての組み合わせでこの計算�
 - 距離行列における最も大きな値 (largest) より大きな値にする（1 を足している）
 - 対角要素には引数自身との距離が入っているので、そこに大きな値を入れておかないと以下の関数は常に引数と同じ ID の文書を返してしまう
 
+
     def closest_to(doc_id):
         return paiirwise[doc_id].argmin()
 
@@ -154,7 +157,7 @@ pdist 関数を用いると、文書の全ての組み合わせでこの計算�
 
 - 両方とも同じ人が書いた文書で薬について書かれている
 
-4.2.1 Wikipedia 全体のモデル化
+### 4.2.1 Wikipedia 全体のモデル化
 
 Wikipedia の英語記事全体を対象にトピックモデルを作成してみる
 [Wikipedia のダンプファイル](http://dumps.wikimedia.org/enwiki/latest) をダウンロード
@@ -206,15 +209,15 @@ gensim を用いてインデックス化
 - lens -> 各文書のトピック数のリスト
 
 
-    print np.mean(lens)
-    6.55842326445
+    `print np.mean(lens)`
+    `6.55842326445`
 
 
 - トピック数の平均値 -> およそ 6.5 （疎なモデル）
 
 
-    print np.mean(lens <= 10)
-    0.932382190219
+    `print np.mean(lens <= 10)`
+    `0.932382190219`
 
 
 - トピック数 10個以下の割合 -> およそ 93%
