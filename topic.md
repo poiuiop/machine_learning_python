@@ -7,6 +7,7 @@
 ## 4.1 潜在的ディリクレ配分法 (LDA)
 
 **LDA**
+
 1. Latent Dirichlet Allocatioin 潜在的ディリクレ配分法 (以下*LDA*をこちらの意味で用いる)
 2. Linear Discriminant Analysis 線形判別分析 (scikit-learn にある sklearn.lda はこっち)
 
