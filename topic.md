@@ -83,6 +83,7 @@
     id2word=corpus.id2word,
     alpha=1)```
 
+
 ![alpha別](https://github.com/poiuiop/machine_learning_python/blob/master/img/02.png)
 
 - alpha = 1.0 にすると、多くの文書が 20 ~ 25個のトピックを持つようになる
@@ -203,11 +204,13 @@ gensim を用いてインデックス化
 - lens -> 各文書のトピック数のリスト
 
     ```print np.mean(lens)
+
     6.55842326445```
 
 - トピック数の平均値 -> およそ 6.5 （疎なモデル）
 
     ```print np.mean(lens <= 10)
+
     0.932382190219```
 
 - トピック数 10個以下の割合 -> およそ 93%
