@@ -77,12 +77,12 @@
 - alpha が大きくなると各文書が持つトピック数が増える
 - alpha > 0, 通常は小さな値(< 1), gensim のデフォルトは 1.0 / len(corpus)
 
-    ```model = models.ldamodel.LdaModel(
-    corpus,
-    num_topics=100,
-    id2word=corpus.id2word,
-    alpha=1)```
-
+```model = models.ldamodel.LdaModel(
+corpus,
+num_topics=100,
+id2word=corpus.id2word,
+alpha=1)
+```
 
 ![alpha別](https://github.com/poiuiop/machine_learning_python/blob/master/img/02.png)
 
@@ -144,8 +144,9 @@ pdist 関数を用いると、文書の全ての組み合わせでこの計算�
 - 距離行列における最も大きな値 (largest) より大きな値にする（1 を足している）
 - 対角要素には引数自身との距離が入っているので、そこに大きな値を入れておかないと以下の関数は常に引数と同じ ID の文書を返してしまう
 
-    ```def closest_to(doc_id):
-        return paiirwise[doc_id].argmin()```
+```def closest_to(doc_id):
+return paiirwise[doc_id].argmin()
+```
 
 この関数を用いると、例えばデータセットの二つ目の文書に最も類似する文書は`closest_to(1)`で取れる
 
@@ -194,24 +195,28 @@ gensim を用いてインデックス化
 
     `model = gensim.models.ldamodel.LdaModel.load('wiki_lda.pkl')`
 
-    ```topics = []
-    for doc in mm:
-        topics.append(model[doc])```
+```topics = []
+for doc in mm:
+    topics.append(model[doc])
+```
     
-    ```import numpy as np
-    lens = np.array([len(t) for t in topics])```
+```import numpy as np
+lens = np.array([len(t) for t in topics])
+```
 
 - lens -> 各文書のトピック数のリスト
 
-    ```print np.mean(lens)
+```print np.mean(lens)
 
-    6.55842326445```
+6.55842326445
+```
 
 - トピック数の平均値 -> およそ 6.5 （疎なモデル）
 
-    ```print np.mean(lens <= 10)
+```print np.mean(lens <= 10)
 
-    0.932382190219```
+0.932382190219
+```
 
 - トピック数 10個以下の割合 -> およそ 93%
 
