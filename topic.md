@@ -195,7 +195,7 @@ gensim を用いてインデックス化
 - ダウンロード、インデックス化、モデル作成には非常に時間がかかる（それぞれ数時間）
 - 保存しておけばここから続きができる
 
-    `model = gensim.models.ldamodel.LdaModel.load('wiki_lda.pkl')`
+`model = gensim.models.ldamodel.LdaModel.load('wiki_lda.pkl')`
 
 ```
 topics = []
