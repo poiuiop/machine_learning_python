@@ -42,6 +42,8 @@
     from gensim import corpora, models, similarities
     corpus = corpora.BleiCorpus('./data/ap/ap.dat', './data/ap/vocab.txt')
 
+- ap.dat, vocab.txt がない場合、[ここ](http://www.cs.princeton.edu/~blei/lda-c/) の Sample data のところからダウンロードできる
+
 以下のコードでトピックモデルの作成が完了
 
     model = models.ldamodel.LdaModel(
@@ -143,11 +145,11 @@ pdist 関数を用いると、文書の全ての組み合わせでこの計算�
         pairwise[ti,ti] = largest + 1
 
 - 距離行列における最も大きな値 (largest) より大きな値にする（1 を足している）
-- 対角要素には引数自身との距離が入っているので、そこに大きな値を入れておかないと以下の関数は常に引数と同じ ID の文書を返してしまう
+- 対角要素には引数自身との距離(= 0.0) が入っているので、そこに大きな値を入れておかないと以下の関数は常に引数と同じ ID の文書を返してしまう
 
 ```
 def closest_to(doc_id):
-return paiirwise[doc_id].argmin()
+    return pairwise[doc_id].argmin()
 ```
 
 この関数を用いると、例えばデータセットの二つ目の文書に最も類似する文書は`closest_to(1)`で取れる
@@ -202,6 +204,7 @@ topics = []
 for doc in mm:
     topics.append(model[doc])
 ```
+- このリスト topics の作成にも非常に時間がかかる（たぶん 1 時間以上）
     
 ```
 import numpy as np
