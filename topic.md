@@ -8,7 +8,7 @@
 
 **LDA**
 
-1. Latent Dirichlet Allocatioin 潜在的ディリクレ配分法 (以下*LDA*をこちらの意味で用いる)
+1. Latent Dirichlet Allocatioin 潜在的ディリクレ配分法 (以下 **LDA** をこちらの意味で用いる)
 2. Linear Discriminant Analysis 線形判別分析 (scikit-learn にある sklearn.lda はこっち)
 
 - LDA は最も単純なトピックモデルであり、多くのトピックモデル手法の基礎
