@@ -132,6 +132,8 @@ alpha=1)
         for tj,v in t:
             dense[ti,tj] = v
 
+- `len(topics)` はコーパス中の文書数に等しい
+
 ti 番目と tj 番目の距離は、`sum((dense[ti] - dense[tj])**2)`で計算できる
 pdist 関数を用いると、文書の全ての組み合わせでこの計算ができる
 
