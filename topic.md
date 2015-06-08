@@ -23,8 +23,7 @@
     - 料理
 
 - 各トピックは関連する単語のリストを持つ
-- もしこの本が「機械学習」「Python」について 50% ずつ書かれているとすると
-  その2つのトピックの持つ単語リストから、この本で使われている単語が半分ずつ選ばれたことになる   
+- もしこの本が「機械学習」「Python」について 50% ずつ書かれているとすると、その2つのトピックの持つ単語リストから、この本で使われている単語が半分ずつ選ばれたことになる   
 
 実際には、私たちはトピックが何であるかを知らない
 解くべき問題は、「文章製造機」のリバース・エンジニアリング
@@ -77,11 +76,12 @@
 - alpha が大きくなると各文書が持つトピック数が増える
 - alpha > 0, 通常は小さな値(< 1), gensim のデフォルトは 1.0 / len(corpus)
 
-    ```model = models.ldamodel.LdaModel(
+    model = models.ldamodel.LdaModel(
     corpus,
     num_topics=100,
     id2word=corpus.id2word,
-    alpha=1)```
+    alpha=1)
+
 
 ![alpha別](https://github.com/poiuiop/machine_learning_python/blob/master/img/02.png)
 
@@ -146,6 +146,7 @@ pdist 関数を用いると、文書の全ての組み合わせでこの計算�
     def closest_to(doc_id):
         return paiirwise[doc_id].argmin()
 
+
 この関数を用いると、例えばデータセットの二つ目の文書に最も類似する文書は`closest_to(1)`で取れる
 
 ![二つ目の文書](https://github.com/poiuiop/machine_learning_python/blob/master/img/06.png)
@@ -193,29 +194,27 @@ gensim を用いてインデックス化
 
     `model = gensim.models.ldamodel.LdaModel.load('wiki_lda.pkl')`
 
-    ```topics = []
+    topics = []
     for doc in mm:
-        topics.append(model[doc])```
+        topics.append(model[doc])
     
 
-    ```import numpy as np
-    lens = np.array([len(t) for t in topics])```
+    import numpy as np
+    lens = np.array([len(t) for t in topics])
 
 
 - lens -> 各文書のトピック数のリスト
 
 
-    ```print np.mean(lens)
-
-    6.55842326445```
+    print np.mean(lens)
+    6.55842326445
 
 
 - トピック数の平均値 -> およそ 6.5 （疎なモデル）
 
 
-    ```print np.mean(lens <= 10)
-
-    0.932382190219```
+    print np.mean(lens <= 10)
+    0.932382190219
 
 
 - トピック数 10個以下の割合 -> およそ 93%
